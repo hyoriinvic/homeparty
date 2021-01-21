@@ -1,4 +1,4 @@
-const url = 'https://hyoriinvic.github.io/buffet_type_test/';
+const url = 'https://hyoriinvic.github.io/homeparty/';
 const title = '[뷔페 유형 테스트] 애슐리 홈 뷔페 (딜리버리 서비스) ';
 const hash = '%23buffet_type_test %23뷔페유형테스트 %23애슐리홈뷔페';
 
