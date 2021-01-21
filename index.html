@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+
+  <meta name="author" content="Eland ESI">
+
+  <meta name="keywords" content="뷔페 유형 테스트, buffet_type_test, 애슐리딜리버리, 애슐리홈뷔페">
+  <meta name="description" content="뷔페 유형 테스트: 뷔페에서 나는 어떤 사람?">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="뷔페에서 나는 어떤 유형의 사람일까?">
+  <meta property="og:description" content="애슐리 홈 뷔페">
+  <meta property="og:image" content="img/og-logo.jpg">
+  <meta property="og:url" content="https://hyoriinvic.github.io/buffet_type_test/">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="shortcut icon" type="text/css" href="img/favicon.png">
+  <link rel="appel-touch-icon-precomposed" href="img/favicon.png">
+  <title>
+    My Ashley-뷔페유형테스트
+  </title>
+  <link rel="stylesheet" href="css/reset.css">  
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header+footer.css">
+  <link rel="stylesheet" href="css/welcome.css">
+  <link rel="stylesheet" href="css/qna.css">
+  <link rel="stylesheet" href="css/calc.css">
+  <link rel="stylesheet" href="css/result.css">
+  <!--[if lt ie 11]> 
+    <script>
+      alert('IE 11 미만 브라우저에서는 정상적으로 동작하지 않습니다.\n다른 브라우저(크롬, 파이어폭스 등)를 이용해주세요.');
+    </script>
+  <![endif]-->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <!-- Kakao API -->
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script> Kakao.init('fe80e4c0924bac1bac13a933b92cf35c'); </script>
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+      <button class="logo head" onclick=javascript:switchMode()></button>
+    </header>
+
+    <section id="welcome" class="container">
+      <div id="title-box">
+        <h1 class="title">
+          10 Behavior Types
+        </h1>
+        <h2>
+          When You Go to the Buffet
+        </h2>
+        <h3 class="sec-tit">
+          5가지 질문으로<br>
+          알아보는 뷔페 행동 유형
+        </h3>
+        <span class="time-logo"></span>
+        <div>소요 시간 : 3분 내외</div>
+      </div>
+      <hr class="w-line">
+      <p class="w-line">
+        <span id="p-tit">이 테스트로 당신은...</span><br>
+        뷔페에서 당신이 어떤 유형의 사람인지 알 수 있습니다.<br>
+        마음 놓고 즐기기 어려워진 오프라인 뷔페<br>
+        잊고 있었던 뷔페에서의 즐거웠던 시간을 떠올려보아요!
+      </p>
+      <hr class="w-line">
+      <div id="name-input">
+        <input type="text" placeholder="이름" autofocus>
+      </div>
+      <p class="check-name warning"></p>
+      <div class="start-wrap">
+        <button class="start">START</button>
+      </div>
+    </section>
+
+    <section id="qna" class="container">
+      <div class="status-bar">
+        <div class="status"></div>
+      </div>
+      <div class="q box"></div>
+      <div class="answer"></div>
+    </section>
+
+    <section id="calc">
+      <div class="calc-bar">
+        CALCULATING
+        <div class="calc"></div>
+      </div>
+      <p class="wait">잠시 기다려주세요...</p>
+    </section>
+  </section>
+  <section id="result" class="container">
+    <div id="score-box">
+      <div class="p title"></div>
+      <div class="point"></div>
+      <div class="pin"></div>
+      <div class="score-bar"></div>
+    </div>
+    <div id="desc-box">
+      <div class="art"></div>
+      <div class="result title"></div>
+      <div class="res desc"></div>
+      <span class="go-artist highlight" onclick=javascript:goArtist()>
+        결과가 마음에 드시나요?
+      </span>
+    </div>
+    <hr>
+    <p>친구들과 공유하기</p>
+    <div class="hash">#buffet_type_test #뷔페유형테스트 #애슐리홈뷔페</div>
+    <div id="share-box">
+      <!-- <a onclick=javascript:tw() target="_blank" alt="Share on Twitter" title="트위터에 공유하기">
+        <span class="tw"></span>
+      </a> -->
+      <a onclick=javascript:kakao() target="_blank" alt="Share on KakaoTalk" title="카카오톡에 공유하기">
+        <span class="kakao"></span>
+      </a>
+      <a onclick=javascript:fb() target="_blank" alt="Share on Facebook" title="페이스북에 공유하기">
+        <span class="fb"></span>
+      </a>
+      <a onclick=javascript:nv() target="_blank" alt="Share on Naver" title="네이버에 공유하기">
+        <span class="nv"></span>
+      </a>
+      <a onclick=javascript:band() target="_blank" alt="Share on Naver Band" title="네이버 밴드에 공유하기">
+        <span class="band"></span>
+      </a>
+    </div>
+    <button onclick=javascript:copy() class="btn">링크 복사하기</button>
+    <hr>
+    <div id="intro-box">
+      <div class="pro_pic"></div>
+      <div class="art-name">애슐리 홈 뷔페</div>
+      <div class="artist desc">
+        <!-- Sorry for painting<br>
+        동식물과 장소를 가지고 페인팅을 합니다.<br><br>
+        email: <span class="highlight">sallycool27@naver.com</span><br>
+        instagram: <a href="https://www.instagram.com/gyeoly27" target="_blank" title="작가 인스타그램"><span
+            class="highlight">gyeoly27</span></a> -->
+      </div>
+      <button class="art-sns btn">
+        <a href="https://www.instagram.com/your_ashley/?hl=ko" target="_blank" title="공식 인스타그램">
+          @your_ashely
+        </a>
+      </button>
+    </div>
+    <hr>
+    <div class="caution">
+      <!-- <p>
+        사람은 서로 조금씩 달라서 6가지 이미지에 꼭 맞기는 어렵습니다.
+        결과가 조금 맞지 않더라도 이런 면이 있음을 알고 강점에 주목해 보세요.
+        좋은 평판은 어느새 당신의 단짝이 되어 있을 겁니다!<br><br> -->
+        테스트가 재밌었다면
+        <span class="go-share highlight" onclick=javascript:goShare()>공유하기</span>로 이벤트에 참여하세요!
+      </p>
+    </div>
+    <hr>
+    <div class="caution">
+      <p>
+        <span class="warning">결과 페이지에 나오는 그림의 상업적 이용을 금지합니다.</span><br>
+        해당 이미지의 저작권은 애슐리에 있습니다.<br>
+        테스트와 공유는 자유롭게 하시면 됩니다.<br>
+        고맙습니다!
+      </p>
+    </div>
+    <hr>
+    <button class="go-origin btn">
+      <a href="https://www.myashley.co.kr/" target="_blank" title="애슐리 공식 홈페이지">
+        애슐리 공식 홈페이지
+      </a>
+    </button>
+  </section>
+  <footer id="footer">
+    <div>
+      <span class="highlight">Ashley Home Buffet</span>
+      © 2021
+    </div>
+  </footer>
+</div>
+<script src="js/darkmode.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/share.js"></script>
+</body>
+
+</html>
